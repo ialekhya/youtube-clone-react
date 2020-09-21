@@ -1,0 +1,7 @@
+.app-layout *:not(:first-child) {
+      margin-top: 3rem;
+}
+
+.app-layout::-webkit-scrollbar{
+    width: 6px;
+}

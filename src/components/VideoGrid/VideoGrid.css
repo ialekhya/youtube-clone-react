@@ -1,0 +1,10 @@
+.video-grid{
+    display: flex;
+    flex-wrap: wrap;
+    /* overflow: hidden; */
+}
+.heading{
+    /* position: absolute; */
+    margin-left: 2rem ;
+    padding-top: 2rem;
+}

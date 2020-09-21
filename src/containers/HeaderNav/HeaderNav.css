@@ -5,10 +5,12 @@
     background-color: white;
     box-shadow: 0.5px 0.5px gray;
     display: flex;
+    flex-grow :1;
+    z-index: 1;
     align-items: center;
     position: fixed;
     justify-content: space-between;
-    padding-left: 4rem;
+    /* padding-left: 4rem; */
 }
 .logo-wrapper img{
     height: 1.5rem;
