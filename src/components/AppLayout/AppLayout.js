@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import './AppLayout.css';
 import HeaderNav from '../../containers/HeaderNav/HeaderNav';
 
@@ -10,3 +10,6 @@ export function AppLayout(props) {
       </div>
   );
 }
+
+export default AppLayout;
+

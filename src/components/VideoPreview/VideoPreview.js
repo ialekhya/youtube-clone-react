@@ -1,8 +1,11 @@
 import React from 'react'
 import './VideoPreview.css'
-function VideoPreview() {
+function VideoPreview(props) {
+ const horizantal =  props.horizantal ? 'horizantal' : null ;
+ console.log(props.horizantal)
+ console.log(['video-preview', horizantal].join(' '))
     return (
-     <div className='video-preview'>
+      <div className={['video-preview', horizantal].join(' ')}>
         <div className='image-container'>
           <img src='http://via.placeholder.com/210x118'/>
           <div className='time-label'>

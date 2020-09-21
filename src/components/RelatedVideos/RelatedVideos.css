@@ -1,0 +1,6 @@
+.related-videos > *{
+    margin-top: 4px;    
+}
+.related-videos{
+    max-width:402px;
+}

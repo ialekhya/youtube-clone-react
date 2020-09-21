@@ -1,0 +1,13 @@
+.next-up-container{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 4px 12px;
+}
+.up-next-toggle {
+    display: flex;
+    align-items: center;
+}
+.up-next-toggle span {
+    margin-right: 10px;
+}

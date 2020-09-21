@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
-import HeaderNav from './containers/HeaderNav/HeaderNav';
 import Home from './containers/Home/Home'
+import Watch from './containers/Watch/Watch'
 import AppLayout from './components/AppLayout/AppLayout'
+import {Route, Switch} from 'react-router-dom';
+
 class App extends Component {
   render() {
     return (
-      <React.Fragment>
-         <HeaderNav/>
-          <Home/>
-      </React.Fragment>
+      <AppLayout>
+          <Switch>
+            <Route path="/watch" component={Watch} />
+            <Route path="/" component={Home} />
+          </Switch>
+      </AppLayout>
     );
   }
 }

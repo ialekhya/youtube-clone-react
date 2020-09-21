@@ -2,13 +2,14 @@ import React from 'react';
 import {Image, Menu} from 'semantic-ui-react';
 import './HeaderNav.css';
 import logo from '../../assets/images/logo.jpg';
+import {Link} from 'react-router-dom';
 
 export class HeaderNav extends React.Component {
   render() {
     return (
       <header className="header">
           <div className="logo-wrapper">
-            <img src={logo}  />
+           <Link to="/"> <img src={logo}  /> </Link> 
           </div>
           <form className="search-bar">
             <input className="search-bar-input" type="text" placeholder="Search "></input>
