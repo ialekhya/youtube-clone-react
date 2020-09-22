@@ -2,8 +2,6 @@ import React from 'react'
 import './VideoPreview.css'
 function VideoPreview(props) {
  const horizantal =  props.horizantal ? 'horizantal' : null ;
- console.log(props.horizantal)
- console.log(['video-preview', horizantal].join(' '))
     return (
       <div className={['video-preview', horizantal].join(' ')}>
         <div className='image-container'>

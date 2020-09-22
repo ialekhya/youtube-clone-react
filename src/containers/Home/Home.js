@@ -6,9 +6,9 @@ function Home() {
     return (
         <React.Fragment>
             <SideBar></SideBar>
-            <div className="home">
+        <div className="home">
             <div className="responsive-video-grid-container">
-                  <VideoGrid title="Trending"/>
+                 <VideoGrid title="Trending"/>
                  <VideoGrid title="Subscriptions"/>
             </div>
         </div>

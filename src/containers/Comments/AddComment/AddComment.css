@@ -1,0 +1,16 @@
+.add-comment{
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+}
+.user-image{
+   border-radius: 30px;
+   margin-right: 10px;
+}
+.add-comment form{
+  flex: 1;
+  margin-right: 10px;
+}
+.comment-form textarea{
+    width: 100%;
+} 

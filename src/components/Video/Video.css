@@ -1,6 +1,6 @@
 .video-container {
     position: relative;
-    width: 80%;
+    width: 100%;
 }
 .video-container::before{
     content: "";
