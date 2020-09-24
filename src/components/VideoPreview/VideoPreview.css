@@ -19,9 +19,14 @@ margin: 1rem;
 }
 .image-container{
     position: relative;
+    width: 210px;
     height: 118px;
     grid-row: 1/2;
     grid-column: 1/2;
+}
+.image-container img{
+    width: 210px;
+    height: 118px;
 }
 .time-label{
     position: absolute;

@@ -1,0 +1,45 @@
+{
+  "api": {
+    "libraryLoaded": true
+  },
+  "videos": {
+    "byId": {
+      "videoId1": {
+        "snippet": {},
+        "thumbnails":  {}
+      },
+      "video2": {
+        "snippet": {},
+        "thumbnails": {}
+      }
+    },
+    "mostPopular": {
+      "items": ["VideoId1", "videoId2"],
+      "totalResults": 200,
+      "nextPageToken": "asdfasdfasdfasdfddd"
+    },
+    "categories": {
+      "1": "Film & Animation",
+      "2": "Music"
+    },
+    "byCategory": {
+      "categoryId1": {
+          "totalResults": 200,
+          "nextPageToken": "some-token",
+          "items": ["videoId1", "videoId2", "videoId3"]
+      },
+      "categoryId2": {
+          "totalResults": 200,
+          "nextPageToken": "some-token",
+          "items": ["videoId2", "videoId5"]
+      }
+    },
+    "related": {
+      "videoId1": {
+        "totalResults": 200,
+        "nextPageToken": "some-page-token",
+        "items": ["videoId2"]
+      }
+    }
+  }
+}

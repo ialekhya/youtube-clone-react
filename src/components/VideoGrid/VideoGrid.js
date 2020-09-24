@@ -2,22 +2,21 @@ import React from 'react'
 import VideoPreview from '../VideoPreview/VideoPreview'
 import './VideoGrid.css'
 function VideoGrid(props) {
-    return (
+  if (!props.videos || !props.videos.length) {
+    return <div/>;
+  }
+  const gridItems = props.videos.map(video => {
+    return (<VideoPreview video={video}
+                          key={video.id}
+                          pathname='/watch'
+                          search={`?v=${video.id}`}/>);
+  });
+  return (
     <React.Fragment>
       <h3 className="heading">{props.title}</h3>
       <div className='video-grid'>
-        <VideoPreview/>
-        <VideoPreview/>
-        <VideoPreview/>
-        <VideoPreview/>
-        <VideoPreview/>
-        <VideoPreview/>
-        <VideoPreview/>
-        <VideoPreview/>
-        <VideoPreview/>
-        <VideoPreview/>
-        <VideoPreview/>
-        <VideoPreview/>
+        {/* <VideoPreview/> */}
+        {gridItems}
       </div>
       <hr></hr>
     </React.Fragment>
