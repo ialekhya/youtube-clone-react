@@ -4,8 +4,14 @@ import {Image,Button} from 'semantic-ui-react'
 import Linkify from 'react-linkify';
 import './VideoInfo.css'
 export function VideoInfo (props) {
-    console.log("Helloq")   
-    const [collapsed, setcollapsed] = useState(true);
+  
+  const [collapsed, setcollapsed] = useState(true);
+  if (!props.video || !props.channel) {
+    return <div/>;
+  }
+  const {channel} = props; 
+  const channelThumbnail = channel.snippet.thumbnails.medium.url;
+  const channelTitle = channel.snippet.title;
 
      const onToggleCollapseButtonClick = () =>{
        setcollapsed(!collapsed)
@@ -34,12 +40,12 @@ export function VideoInfo (props) {
     const {descriptionTextClass, buttonTitle} = getConfig(); 
     return (
     <div className='video-info-box'>
-       <Image className='channel-image' src='http://via.placeholder.com/48x48' circular/>
+       <Image className='channel-image' src={channelThumbnail} circular/>
        <div className="video-info">
-           <div className='channel-name'>Channel Name</div>
+           <div className='channel-name'>{channelTitle}</div>
     <div className='video-publication-date'>{props.video.snippet.publishedAt}</div>
        </div>
-       <Button color='youtube' className="subscribe">91.5K Subscribe</Button>
+    <Button color='youtube' className="subscribe">{props.channel.statistics.subscriberCount}</Button>
        <div className="video-description">
          <div className={descriptionTextClass}>
             {descriptionParagraphs}   

@@ -6,7 +6,7 @@ export default function* () {
     fork(watchMostPopularVideos),
     fork(watchVideoCategories),
     fork(watchMostPopularVideosByCategory),
-    fork(watchWatchDetails)
+    fork(watchWatchDetails),
   ]);
 }
 export function* fetchEntity(request, entity, ...args) {

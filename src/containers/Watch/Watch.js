@@ -1,52 +1,59 @@
-import React from 'react'
-import './Watch.css'
-import Video from '../../components/Video/Video'
-import VideoPreview from '../../components/VideoPreview/VideoPreview'
-import RelatedVideos from '../../components/RelatedVideos/RelatedVideos'
-import NextUpVideo from '../../components/RelatedVideos/NextUpVideo/NextUpVideo'
-import VideoMetadata from '../../components/VideoMetadata/VideoMetadata';
-import VideoInfo from '../../components/VideoInfo/VideoInfo'
-import { Comments } from '../Comments/Comments/Comments'
+import React from 'react';
 import {bindActionCreators} from 'redux';
 import * as watchActions from '../../store/actions/watch';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {getYoutubeLibraryLoaded} from '../../store/reducers/api';
 import WatchContent from './WatchContent/WatchContent';
+import {getSearchParam} from '../../services/url';
+import {getChannelId} from '../../store/reducers/video';
 
-class Watch  extends React.Component {
-    getVideoId() {
-    const searchParams = new URLSearchParams(this.props.location.search);
-    return searchParams.get('v');
-    }
-    componentDidMount() {
-      if (this.props.youtubeLibraryLoaded) {
-        this.fetchWatchContent();
-      }
-    }
-  
-    componentDidUpdate(prevProps) {
-      if(this.props.youtubeLibraryLoaded !== prevProps.youtubeLibraryLoaded) {
-        this.fetchWatchContent();
-      }
-    }
-  
-    fetchWatchContent() {
-      const videoId = this.getVideoId();
-      if(!videoId) {
-        this.props.history.push('/');
-      }
-      this.props.fetchWatchDetails(videoId, this.props.channelId);
-    } 
-    render(){
-    const videoId = this.getVideoId();  
+class Watch extends React.Component {
+  render() {
+    const videoId = this.getVideoId();
+    console.log("video id",videoId)
     return (
-      <WatchContent  videoId={videoId}/>
-    )}
+      <WatchContent videoId={videoId} channelId={this.props.channelId}/>
+    );
+  }
+
+  componentDidMount() {
+    console.log(" componentDidMount watch")
+    if (this.props.youtubeLibraryLoaded) {
+      console.log("call fetchWatchContent mount")
+      this.fetchWatchContent();
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    
+    console.log(" componentDidUpdate watch")
+    if (this.props.youtubeLibraryLoaded !== prevProps.youtubeLibraryLoaded) {
+      console.log("call fetchWatchContent update")
+      this.fetchWatchContent();
+    }
+  }
+
+  getVideoId() {
+    return getSearchParam(this.props.location, 'v');
+  }
+
+  fetchWatchContent() {
+    const videoId = this.getVideoId();
+    console.log("fetchWatchContent ",videoId )
+    if (!videoId) {
+      console.log("pushedbakc")
+      this.props.history.push('/');
+    }
+    console.log("fetchWatchDetails call ",this.props.channelId)
+    this.props.fetchWatchDetails(videoId, this.props.channelId);
+  }
 }
-function mapStateToProps(state) {
+
+function mapStateToProps(state, props) {
   return {
     youtubeLibraryLoaded: getYoutubeLibraryLoaded(state),
+    channelId: getChannelId(state, props.location, 'v')
   };
 }
 

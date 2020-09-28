@@ -12,7 +12,7 @@ function NextUpVideo(props) {
             <Checkbox toggle defaultChecked/>
           </div>
       </div>
-      <VideoPreview horizantal={true}/>
+      <VideoPreview horizantal={true} video={props.video} pathname='/watch' search={`?v=${props.video.id}`}/>
       <hr></hr>
     </React.Fragment>
     )

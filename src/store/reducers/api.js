@@ -1,4 +1,5 @@
 import {YOUTUBE_LIBRARY_LOADED} from '../actions/api';
+
 const initialState = {
   libraryLoaded: false,
 };
@@ -12,5 +13,6 @@ export default function api(state = initialState, action) {
       return state;
   }
 }
+
 export const getYoutubeLibraryLoaded = (state) => state.api.libraryLoaded;
 // selector

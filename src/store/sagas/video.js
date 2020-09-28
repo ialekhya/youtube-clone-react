@@ -7,7 +7,9 @@ import {fetchEntity,ignoreErrors} from './index';
 // watcher saga
 export function* watchMostPopularVideos() {
   while (true) {
+    console.log("watcher saga video 1")
     const {amount, loadDescription, nextPageToken} = yield take(videoActions.MOST_POPULAR[REQUEST]);
+    console.log("watcher saga video 2" )
     yield fork(fetchMostPopularVideos, amount, loadDescription, nextPageToken);
   }
 }
